@@ -1,11 +1,11 @@
-# from openai import OpenAI
-# from dotenv import load_dotenv
+from openai import OpenAI
+from dotenv import load_dotenv
 import pandas as pd 
 from docx import Document
 
 
-# load_dotenv()
-# client = OpenAI()
+load_dotenv()
+client = OpenAI()
 
 def generate_report(file):
   # response = client.chat.completions.create(
