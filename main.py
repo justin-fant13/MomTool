@@ -1,8 +1,7 @@
 import streamlit as st
 from functions.generate_report import generate_report
 
-
-st.set_page_config(page_title="Mom's Tool", page_icon=":building_construction:", layout="wide")
+st.set_page_config(page_title="Mom's Tool", page_icon=":building_construction:", layout="wide", initial_sidebar_state="collapsed")
 st.title("Mom's Tool")
 st.subheader("Hi Mom :smile: Upload your file below:")
 
@@ -11,7 +10,6 @@ st.markdown('#') # Add space
 
 if not 'saved_download' in st.session_state:
   st.session_state.saved_download = {}
-
 
 # Main Page
 if st.button("Generate Report", type="primary"):
@@ -22,8 +20,7 @@ if st.button("Generate Report", type="primary"):
       st.success("Done! :sunglasses:")
       file_data = open(report, 'rb').read() 
       st.session_state.saved_download[file_name] = file_data # Save file data to session state
-      st.download_button("Download Report", data=file_data, file_name=f"{ file_name }.docx")
- 
+      st.download_button("Download Report", data=file_data, file_name=f"{ file_name }.docx") 
   else: 
     st.error("No file uploaded! :astonished:")
 
@@ -32,8 +29,7 @@ with st.sidebar:
   st.title("Generated Reports:")
   if st.session_state.saved_download:
     for file_name, file_data in st.session_state.saved_download.items(): # Display all saved files
-      st.download_button(f"{ file_name }", data=file_data, file_name=f"{ file_name }.docx", key=file_name) 
-  
+      st.download_button(f"{ file_name }", data=file_data, file_name=f"{ file_name }.docx", key=file_name)  
   else:  
     st.info("No reports generated yet! :sweat_smile:")
 

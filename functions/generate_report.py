@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import pandas as pd 
 from docx import Document
 
-
 load_dotenv()
 client = OpenAI()
 
@@ -24,7 +23,6 @@ def generate_report(file):
   # doc.add_paragraph(response.choices[0].message.content)
   # doc.save("report.docx")
   # return "report.docx"
-
 
  # For testing purposes
   doc = Document()
