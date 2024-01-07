@@ -16,10 +16,11 @@ def generate_report(file):
   #     {"role":"system", "content":f"Here is the file: {pd.read_excel(file)}"},
   #     ],
   #   temperature = 0,
+  #   response_format="json",
   # )
 
   # doc = Document()
-  # doc.add_heading("Report")
+  # doc.add_heading(f"Report for : {file.name.split('.')[0]}")
   # doc.add_paragraph(response.choices[0].message.content)
   # doc.save("report.docx")
   # return "report.docx"
